@@ -15,4 +15,7 @@ public interface MangaDao {
 
     @Query("SELECT * from manga_table")
     LiveData<List<Manga>> getAllMangas();
+
+    @Query("DELETE FROM manga_table")
+    void deleteAll();
 }

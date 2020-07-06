@@ -27,4 +27,8 @@ public class MangaViewModel extends AndroidViewModel {
     public void insert(Manga manga) {
         mangaRepository.insert(manga);
     }
+
+    public void deleteAll() {
+        mangaRepository.deleteAll();
+    }
 }

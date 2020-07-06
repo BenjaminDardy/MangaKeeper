@@ -29,4 +29,10 @@ public class MangaRepository {
         });
     }
 
+    public void deleteAll() {
+        MangaRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mangaDao.deleteAll();
+        });
+    }
+
 }

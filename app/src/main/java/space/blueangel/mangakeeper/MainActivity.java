@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import space.blueangel.mangakeeper.entities.Manga;
 import space.blueangel.mangakeeper.viewmodels.MangaViewModel;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

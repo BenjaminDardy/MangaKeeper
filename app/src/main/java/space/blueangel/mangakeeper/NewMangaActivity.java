@@ -11,10 +11,10 @@ import android.widget.EditText;
 
 public class NewMangaActivity extends AppCompatActivity {
 
-    public static final String EXTRA_REPLY_MANGA_NAME = "com.example.android.wordlistsql.REPLY";
-    public static final String EXTRA_REPLY_MANGA_URL = "com.example.android.wordlistsql.REPLY";
-    public static final String EXTRA_REPLY_MANGA_LAST_NUMBER = "com.example.android.wordlistsql.REPLY";
-    public static final String EXTRA_REPLY_MANGA_MISSING_NUMBER = "com.example.android.wordlistsql.REPLY";
+    public static final String EXTRA_REPLY_MANGA_NAME = "REPLY_MANGA_NAME";
+    public static final String EXTRA_REPLY_MANGA_URL = "REPLY_MANGA_URL";
+    public static final String EXTRA_REPLY_MANGA_LAST_NUMBER = "REPLY_MANGA_LAST_NUMBER";
+    public static final String EXTRA_REPLY_MANGA_MISSING_NUMBER = "REPLY_MANGA_MISSING_NUMBER";
 
     private EditText mEditMangaNameView;
     private EditText mEditMangaUrlView;
@@ -34,16 +34,16 @@ public class NewMangaActivity extends AppCompatActivity {
         button.setOnClickListener(view -> {
             Intent replyIntent = new Intent();
             if (TextUtils.isEmpty(mEditMangaNameView.getText()) || TextUtils.isEmpty(mEditMangaUrlView.getText())
-             || TextUtils.isEmpty(mEditMangaLastNumberView.getText()) || TextUtils.isEmpty(mEditMangaMissingNumbersView.getText())) {
+             || TextUtils.isEmpty(mEditMangaLastNumberView.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
                 String mangaName = mEditMangaNameView.getText().toString();
                 replyIntent.putExtra(EXTRA_REPLY_MANGA_NAME, mangaName);
                 String mangaUrl = mEditMangaUrlView.getText().toString();
                 replyIntent.putExtra(EXTRA_REPLY_MANGA_URL, mangaUrl);
-                String mangaLastNumber = mEditMangaNameView.getText().toString();
+                String mangaLastNumber = mEditMangaLastNumberView.getText().toString();
                 replyIntent.putExtra(EXTRA_REPLY_MANGA_LAST_NUMBER, mangaLastNumber);
-                String mangaMissingNumbers = mEditMangaNameView.getText().toString();
+                String mangaMissingNumbers = mEditMangaMissingNumbersView.getText().toString();
                 replyIntent.putExtra(EXTRA_REPLY_MANGA_MISSING_NUMBER, mangaMissingNumbers);
                 setResult(RESULT_OK, replyIntent);
             }

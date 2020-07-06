@@ -25,10 +25,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final MangaListAdapter adapter = new MangaListAdapter(this);
-        listView.setAdapter((ListAdapter) adapter);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mangaViewModel = new ViewModelProvider(this).get(MangaViewModel.class);
         // Update the cached copy of the words in the adapter.
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             Manga manga = new Manga(
                     data.getStringExtra(NewMangaActivity.EXTRA_REPLY_MANGA_NAME),
                     data.getStringExtra(NewMangaActivity.EXTRA_REPLY_MANGA_MISSING_NUMBER),
-                    Long.parseLong(data.getStringExtra(NewMangaActivity.EXTRA_REPLY_MANGA_LAST_NUMBER)),
+                    !data.getStringExtra(NewMangaActivity.EXTRA_REPLY_MANGA_LAST_NUMBER).equals("") ? Long.parseLong(data.getStringExtra(NewMangaActivity.EXTRA_REPLY_MANGA_LAST_NUMBER)) : 0,
                     data.getStringExtra(NewMangaActivity.EXTRA_REPLY_MANGA_URL)
             );
             mangaViewModel.insert(manga);

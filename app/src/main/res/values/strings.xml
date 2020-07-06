@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MangaKeeper</string>
+    <string name="add_manga">AddManga</string>
+    <string name="hint_manga_name">Manga Name</string>
+    <string name="hint_manga_url">Manga Url</string>
+    <string name="hint_manga_last_owned_number">Last Number Owned</string>
+    <string name="hint_manga_missing_number">Missing numbers</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Manga not saved because it is empty</string>
+</resources>

@@ -34,6 +34,15 @@ public class Manga {
         this.imageUrl = imageUrl;
     }
 
+    @Ignore
+    public Manga(int id, @NonNull String name, String missingNumbers, Long lastNumberOwned, String imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.missingNumbers = missingNumbers;
+        this.lastNumberOwned = lastNumberOwned;
+        this.imageUrl = imageUrl;
+    }
+
     public int getId() {
         return id;
     }

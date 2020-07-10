@@ -15,10 +15,11 @@ import space.blueangel.mangakeeper.entities.Manga;
 
 public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.MangaViewHolder> {
 
-    public static final String EXTRA_REPLY_MANGA_NAME = "REPLY_MANGA_NAME";
-    public static final String EXTRA_REPLY_MANGA_URL = "REPLY_MANGA_URL";
-    public static final String EXTRA_REPLY_MANGA_LAST_NUMBER = "REPLY_MANGA_LAST_NUMBER";
-    public static final String EXTRA_REPLY_MANGA_MISSING_NUMBER = "REPLY_MANGA_MISSING_NUMBER";
+    public static final String EXTRA_MANGA_ID = "MANGA_ID";
+    public static final String EXTRA_MANGA_NAME = "MANGA_NAME";
+    public static final String EXTRA_MANGA_URL = "MANGA_URL";
+    public static final String EXTRA_MANGA_LAST_NUMBER = "MANGA_LAST_NUMBER";
+    public static final String EXTRA_MANGA_MISSING_NUMBER = "MANGA_MISSING_NUMBER";
 
     class MangaViewHolder extends RecyclerView.ViewHolder {
         private final TextView mangaItemView;
@@ -53,16 +54,14 @@ public class MangaListAdapter extends RecyclerView.Adapter<MangaListAdapter.Mang
         } else {
             holder.mangaItemView.setText("No Manga");
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, DisplayMangaActivity.class);
-                intent.putExtra(EXTRA_REPLY_MANGA_NAME, mMangas.get(position).getName());
-                intent.putExtra(EXTRA_REPLY_MANGA_URL, mMangas.get(position).getImageUrl());
-                intent.putExtra(EXTRA_REPLY_MANGA_LAST_NUMBER, mMangas.get(position).getLastNumberOwned());
-                intent.putExtra(EXTRA_REPLY_MANGA_MISSING_NUMBER, mMangas.get(position).getMissingNumbers());
-                context.startActivity(intent);
-            }
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, DisplayMangaActivity.class);
+            intent.putExtra(EXTRA_MANGA_ID, mMangas.get(position).getId());
+            intent.putExtra(EXTRA_MANGA_NAME, mMangas.get(position).getName());
+            intent.putExtra(EXTRA_MANGA_URL, mMangas.get(position).getImageUrl());
+            intent.putExtra(EXTRA_MANGA_LAST_NUMBER, mMangas.get(position).getLastNumberOwned().toString());
+            intent.putExtra(EXTRA_MANGA_MISSING_NUMBER, mMangas.get(position).getMissingNumbers());
+            context.startActivity(intent);
         });
     }
 

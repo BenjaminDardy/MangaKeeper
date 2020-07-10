@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_manga_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_manga_name"
+            android:inputType="textAutoComplete"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edit_manga_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_manga_url"
+            android:inputType="textAutoComplete"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edit_manga_last_owned_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_manga_last_owned_number"
+            android:inputType="number"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edit_manga_missing_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_manga_missing_number"
+            android:inputType="textAutoComplete"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="@string/button_update"
+        android:layout_margin="@dimen/big_padding"
+        android:textColor="@color/buttonLabel" />
+
+</LinearLayout>

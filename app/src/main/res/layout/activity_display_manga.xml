@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,62 +7,81 @@
     android:orientation="vertical"
     tools:context=".DisplayMangaActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/mangaTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manga Title"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/edit_manga_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/lastNumberOwned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Number Owned"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/edit_manga_last_owned_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/missingNumbers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Missing Numbers"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/edit_manga_missing_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/big_padding"
+            android:background="#FFFFFF"
+            android:fontFamily="sans-serif-light"
+            android:minHeight="@dimen/min_height"
+            android:textSize="18sp" />
+
+    </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/mangaTitle"
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Manga Title"
-        android:textSize="24sp" />
+        android:layout_gravity="bottom|start"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/edit_manga"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:backgroundTint="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/edit_manga_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-light"
-        android:minHeight="@dimen/min_height"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/lastNumberOwned"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Last Number Owned"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/edit_manga_last_owned_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-light"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/missingNumbers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Missing Numbers"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/edit_manga_missing_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/big_padding"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif-light"
-        android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

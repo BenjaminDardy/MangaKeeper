@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 import space.blueangel.mangakeeper.entities.Manga;
 
 @Dao
@@ -18,4 +19,7 @@ public interface MangaDao {
 
     @Query("DELETE FROM manga_table")
     void deleteAll();
+
+    @Update
+    public void updateManga(Manga mangas);
 }

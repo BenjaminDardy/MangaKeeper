@@ -35,4 +35,10 @@ public class MangaRepository {
         });
     }
 
+    public void updateManga(Manga mangas) {
+        MangaRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mangaDao.updateManga(mangas);
+        });
+    }
+
 }

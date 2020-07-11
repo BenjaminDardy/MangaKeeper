@@ -1,7 +1,9 @@
 package space.blueangel.mangakeeper;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import space.blueangel.mangakeeper.entities.Manga;
+import space.blueangel.mangakeeper.viewmodels.MangaViewModel;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,8 @@ public class EditMangaActivity extends AppCompatActivity {
     public static final String EXTRA_REPLY_EDIT_MANGA_URL = "REPLY_EDIT_MANGA_URL";
     public static final String EXTRA_REPLY_EDIT_MANGA_LAST_NUMBER = "REPLY_EDIT_MANGA_LAST_NUMBER";
     public static final String EXTRA_REPLY_EDIT_MANGA_MISSING_NUMBER = "REPLY_EDIT_MANGA_MISSING_NUMBER";
+
+    public static final int RESULT_DELETE = 2;
 
     private EditText mEditMangaNameView;
     private EditText mEditMangaUrlView;
@@ -61,6 +65,17 @@ public class EditMangaActivity extends AppCompatActivity {
                 replyIntent.putExtra(EXTRA_REPLY_EDIT_MANGA_MISSING_NUMBER, mEditMangaMissingNumbersView.getText().toString());
                 setResult(RESULT_OK, replyIntent);
             }
+            finish();
+        });
+        final Button deleteButton = findViewById(R.id.button_delete);
+        deleteButton.setOnClickListener(view -> {
+            Intent replyIntent = new Intent();
+            replyIntent.putExtra(EXTRA_REPLY_EDIT_MANGA_ID, editManga.getId());
+            replyIntent.putExtra(EXTRA_REPLY_EDIT_MANGA_NAME, editManga.getName());
+            replyIntent.putExtra(EXTRA_REPLY_EDIT_MANGA_URL, editManga.getImageUrl());
+            replyIntent.putExtra(EXTRA_REPLY_EDIT_MANGA_LAST_NUMBER, editManga.getLastNumberOwned());
+            replyIntent.putExtra(EXTRA_REPLY_EDIT_MANGA_MISSING_NUMBER, editManga.getMissingNumbers());
+            setResult(RESULT_DELETE, replyIntent);
             finish();
         });
     }

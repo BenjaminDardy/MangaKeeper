@@ -83,11 +83,23 @@ public class DisplayMangaActivity extends AppCompatActivity {
             mEditMangaLastNumberView.setText(editManga.getLastNumberOwned().toString());
             mEditMangaMissingNumbersView.setText(editManga.getMissingNumbers());
             Picasso.get().load(editManga.getImageUrl()).into(mEditMangaUrlView);
+            displayedManga = editManga;
         } else {
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_not_saved,
                     Toast.LENGTH_LONG).show();
+        }
+        if (requestCode == EDIT_MANGA_ACTIVITY_REQUEST_CODE && resultCode == EditMangaActivity.RESULT_DELETE) {
+            Manga deleteManga = new Manga(
+                    data.getIntExtra(EditMangaActivity.EXTRA_REPLY_EDIT_MANGA_ID, 0),
+                    data.getStringExtra(EditMangaActivity.EXTRA_REPLY_EDIT_MANGA_NAME),
+                    data.getStringExtra(EditMangaActivity.EXTRA_REPLY_EDIT_MANGA_MISSING_NUMBER),
+                    data.getLongExtra(EditMangaActivity.EXTRA_REPLY_EDIT_MANGA_LAST_NUMBER, 0),
+                    data.getStringExtra(EditMangaActivity.EXTRA_REPLY_EDIT_MANGA_URL)
+            );
+            mangaViewModel.deleteManga(deleteManga);
+            finish();
         }
     }
 }

@@ -8,5 +8,6 @@
     <string name="hint_manga_missing_number">Missing numbers</string>
     <string name="button_save">Save</string>
     <string name="button_update">Save changes</string>
+    <string name="button_delete">Delete</string>
     <string name="empty_not_saved">Manga not saved</string>
 </resources>

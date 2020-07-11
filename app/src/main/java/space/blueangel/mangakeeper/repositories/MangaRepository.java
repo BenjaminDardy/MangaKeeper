@@ -41,4 +41,10 @@ public class MangaRepository {
         });
     }
 
+    public void deleteManga(Manga manga) {
+        MangaRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mangaDao.deleteManga(manga);
+        });
+    }
+
 }
